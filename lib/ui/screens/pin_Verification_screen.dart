@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:task_management_app/routes/route_names.dart';
 import 'package:task_management_app/ui/widgets/background_svg_image.dart';
+import '../controllers/pin_verification_controller.dart';
 import '../utils/app_colors.dart';
 
 class PinVerificationScreen extends StatelessWidget {
@@ -10,6 +11,7 @@ class PinVerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final PinVerificationController controller = Get.find<PinVerificationController>();
     return Scaffold(
       body: BackgroundSvgImage(
         child: SafeArea(
@@ -33,6 +35,7 @@ class PinVerificationScreen extends StatelessWidget {
               
                   PinCodeTextField(
                     length: 6,
+                    controller: controller.pinTEController,
                     obscureText: false,
                     animationType: AnimationType.fade,
                     pinTheme: PinTheme(

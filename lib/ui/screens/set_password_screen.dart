@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_management_app/ui/controllers/set_password_controller.dart';
 import 'package:task_management_app/ui/widgets/background_svg_image.dart';
 
 import '../../routes/route_names.dart';
@@ -10,6 +11,7 @@ class SetPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final SetPasswordController controller = Get.find<SetPasswordController>();
     return Scaffold(
       body: BackgroundSvgImage(
         child: SafeArea(
@@ -31,10 +33,27 @@ class SetPasswordScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   TextFormField(
+                    controller: controller.passwordTEController,
+                    validator: (password) {
+                      if (password == null || password.isEmpty) {
+                        return "Password can not be empty.";
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(hintText: "Password"),
                   ),
                   const SizedBox(height: 8),
                   TextFormField(
+                    controller: controller.confirmPasswordTEController,
+                    validator: (password) {
+                      if (password == null || password.isEmpty) {
+                        return "Password can not be empty.";
+                      }
+                      if(password != controller.passwordTEController.text) {
+                        return "Password does not match.";
+                      }
+                      return null;
+                    },
                     decoration: InputDecoration(hintText: "Confirm Password"),
                   ),
                   const SizedBox(height: 8),

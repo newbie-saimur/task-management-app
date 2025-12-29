@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_management_app/controller_binder.dart';
 import 'package:task_management_app/routes/route_pages.dart';
-import 'package:task_management_app/ui/screens/email_verification_screen.dart';
 import 'package:task_management_app/ui/screens/splash_screen.dart';
 import 'package:task_management_app/ui/utils/app_colors.dart';
 
@@ -51,6 +51,7 @@ class TaskManagementApp extends StatelessWidget {
           ),
         ),
       ),
+      initialBinding: ControllerBinder(),
       home: SplashScreen(),
       getPages: RoutePages.routes,
     );
