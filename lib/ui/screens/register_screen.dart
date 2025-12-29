@@ -76,6 +76,12 @@ class RegisterScreen extends StatelessWidget {
                       if (mobile == null || mobile.isEmpty) {
                         return "Mobile number is required.";
                       }
+                      final mobileRegex = RegExp(
+                        r"^(?:\\+88|88)?(01[3-9]\\d{8})$",
+                      );
+                      if (!mobileRegex.hasMatch(mobile)) {
+                        return "Please enter a valid mobile number.";
+                      }
                       return null;
                     },
                     decoration: InputDecoration(hintText: "Mobile"),
