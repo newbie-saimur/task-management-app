@@ -13,6 +13,8 @@ class TaskManagementApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        colorSchemeSeed: AppColors.primaryColor,
+
         textTheme: TextTheme(
           headlineMedium: TextStyle(fontWeight: FontWeight.w500),
           titleMedium: TextStyle(

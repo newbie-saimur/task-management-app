@@ -31,7 +31,7 @@ class EmailVerificationScreen extends StatelessWidget {
                 TextFormField(decoration: InputDecoration(hintText: "Email")),
                 const SizedBox(height: 8),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: _navigateToPinVerificationScreen,
                   child: Icon(Icons.arrow_circle_right_outlined, color: AppColors.whiteColor, size: 24,),
                 ),
                 const SizedBox(height: 24),
@@ -64,5 +64,9 @@ class EmailVerificationScreen extends StatelessWidget {
 
   void _navigateToLoginScreen() {
     Get.toNamed(RouteNames.loginScreen);
+  }
+
+  void _navigateToPinVerificationScreen() {
+    Get.toNamed(RouteNames.pinVerificationScreen);
   }
 }
